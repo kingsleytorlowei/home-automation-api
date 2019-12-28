@@ -25,7 +25,7 @@ SECRET_KEY = 'ui08kxb998_$l4=h4rn3_9vd^bz6+a@^x!(td7_i&zpv9x(hrr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,7 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'rest_framework',
+    'homeautomation',
+  #  'homeautomation.apps.lights',
+    'homeautomation.apps.devices',
+    'homeautomation.apps.interactions',
+    'homeautomation.apps.observations',
+    'homeautomation.apps.rooms',
+   
+   ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,8 +83,12 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'api',
+    'USER': 'kingsleytorlowei',
+    'PASSWORD': 'CALLOFDUTY11',
+    'HOST': 'localhost',
+    'PORT': '5432',
     }
 }
 
@@ -105,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
