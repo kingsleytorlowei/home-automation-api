@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.utils import timezone
-from homeautomation.apps.devices.models import Device
+from homeautomation.apps.devices.models import Sensor, Light, Thermostat
 from homeautomation.apps.observations.models import Attribute, PowerStatus
 from datetime import timedelta
 

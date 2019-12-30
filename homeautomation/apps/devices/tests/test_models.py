@@ -1,17 +1,18 @@
 from django.test import TestCase
-from homeautomation.apps.devices.models import Device
+from homeautomation.apps.devices.models import Sensor, Light, Thermostat
 
 
-class TestDevice(TestCase):
+class TestSensor(TestCase):
     def setUp(self):
-        self.device = Device.objects.create(name='my toi',
-                                            device_type='TOI',
-                                            location='robohome',
-                                            manufacturer_id='0101')
+        self.sensor = Sensor.objects.create(name='TP-LINK',
+                                            description='Sensor that reads temperature',
+                                            device_type='Temperature Sensor',
+                                            remote_address="1.0.0.1",
+                                            )
 
     def test_dates(self):
-        self.assertGreater(self.device.updated_at,
-                           self.device.created_at)
+        self.assertGreater(self.sensor.updated_at,
+                           self.sensor.created_at)
 
     def test_str(self):
-        self.assertEqual(str(self.device), self.device.name)
+        self.assertEqual(str(self.sensor), self.sensor.name)

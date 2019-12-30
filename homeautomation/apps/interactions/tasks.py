@@ -1,5 +1,5 @@
 from django.utils import timezone
-from homeautomation.apps.devices.models import Device
+from homeautomation.apps.devices.models import Sensor, Light, Thermostat
 from celery import shared_task
 import os
 
@@ -13,10 +13,10 @@ def pull_attributes(device_id=None, **kwargs):
     """
     # SAMPLE IMPLEMENTATION
     # # check device exists
-    # device = Device.objects.get(pk=device_id)
+   #  sensor = Sensor.objects.get(pk=device_id)
 
     # # fetch attributes
-    # data = client.get_attributes(device_id)
+   #  data = client.get_attributes(device_id)
 
     # # create observations
     # pks = []
@@ -73,7 +73,9 @@ def refresh_all(**kwargs):
 
 
 @shared_task
-def set_status(device_id=None, is_on=True, **kwargs):
+def set_status(
+                device_id=None, is_on=True,
+                 **kwargs):
     """
     Sets the device status using the device vendor's API,
     stores the new status in the database,

@@ -3,11 +3,17 @@ from homeautomation.apps.observations.models import Attribute, PowerStatus
 
 
 class AttributeAdmin(admin.ModelAdmin):
-    list_display = ['valid_at', 'device', 'value', 'units']
+    list_display = [
+        'valid_at', 'device',
+         'value', 'units'
+         ]
 
 
 class PowerStatusAdmin(admin.ModelAdmin):
-    list_display = ['valid_at', 'device', 'is_on']
+    list_display = [
+        'valid_at', 'device',
+         'is_on'
+         ]
 
 
 admin.site.register(Attribute, AttributeAdmin)
